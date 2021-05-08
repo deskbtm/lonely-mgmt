@@ -1,0 +1,7 @@
+.env.development merge=ours
+.env.demo merge=ours
+.env.production merge=ours
+ecosystem.config.js merge=ours
+ecosystem.demo.config.js merge=ours
+nginx-conf/* merge=ours
+package.json merge=ours

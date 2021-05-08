@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "lonely-mgmt",
+			"path": "..\\lonely-mgmt"
+		},
+		{
+			"name": "lonely-mgmt-open",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
