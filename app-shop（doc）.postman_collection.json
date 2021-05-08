@@ -1,0 +1,1436 @@
+{
+	"info": {
+		"_postman_id": "70f5e54b-64e0-4e8d-99b8-53349c710572",
+		"name": "app-shop（doc）",
+		"description": "有(doc)的是documentation 有内容的说明的\n(client) 客户端接口\n(admin) 控制台接口\n(both) 二者用公用\n\n点击左上角文本图标 里面有Bearer Token 的是要带上jwt的",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "支付",
+			"item": [
+				{
+					"name": "获取二维码",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InFxQGFkbWluLmNvbSIsInQiOiJ6ZFJJUWs4YkRPOWZoNTJMIiwiaWF0IjoxNjE3MTE4MTAxLCJleHAiOjI0ODExMTgxMDF9.Fi-BopS_iCooMsXRaZlAfII22_XS-0jaZQOlNXaUVgg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "packageName",
+									"value": "com.deskbtm.ddm",
+									"description": "包名",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/pay/qrcode",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"pay",
+								"qrcode"
+							]
+						},
+						"description": "packageName 必须"
+					},
+					"response": []
+				},
+				{
+					"name": "支付宝回调",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gmt_create\": \"2021-03-30 15: 05: 12\",\r\n    \"charset\": \"utf-8\",\r\n    \"seller_email\": \"15398207602\",\r\n    \"subject\": \"maxcalibur的支付接口 谢谢支持!\",\r\n    \"sign\": \"Lqoj1NJ8Qve9vbsToKdcXgaf4IRmU1Hdg586uuqDdN4iD2DHV/4I+1ayrKxs6UP0NWPnxNXNtem0lt0xQNBTpLIGfzOQdR5nZDumoVbjaVLt9d5Ojmhm2AZBjSLgd5xGA+XIIrSoaM6Z4J0aiajOC8bohQAsCsEVpo59PdGIaGF9lfg1QRnWHk4AlG1Pgn8zOUOtJahyt8cPoOHyVUeG0dslntdm0NMVQZ+y/KP5GXSudr6zdNPUFI2ZW9eCY2FKMwtKZBNw1fbEE42y6Uw8DtGFCZbgZFpRNcaNfw6r54N2UR4u0v486WJqWIWzv4nJQptV/XAsm9AoMQ8W8mWoEA==\",\r\n    \"buyer_id\": \"2088832610636870\",\r\n    \"invoice_amount\": \"0.01\",\r\n    \"notify_id\": \"2021033000222150516036871459153428\",\r\n    \"fund_bill_list\": \"[{\\\"amount\\\":\\\"0.01\\\",\\\"fundChannel\\\":\\\"ALIPAYACCOUNT\\\"}]\",\r\n    \"notify_type\": \"trade_status_sync\",\r\n    \"trade_status\": \"TRADE_SUCCESS\",\r\n    \"receipt_amount\": \"0.01\",\r\n    \"app_id\": \"2021001165626770\",\r\n    \"buyer_pay_amount\": \"0.01\",\r\n    \"sign_type\": \"RSA2\",\r\n    \"seller_id\": \"2088722095158050\",\r\n    \"gmt_payment\": \"2021-03-30 15:05:16\",\r\n    \"notify_time\": \"2021-03-30 15:05:16\",\r\n    \"version\": \"1.0\",\r\n    \"out_trade_no\": \"8b6de00b-02d3-44f9-af89-bace31b5b4d9\",\r\n    \"total_amount\": \"0.01\",\r\n    \"trade_no\": \"2021033022001436871435402069\",\r\n    \"auth_app_id\": \"2021001165626770\",\r\n    \"buyer_logon_id\": \"942***@qq.com\",\r\n    \"point_amount\": \"0.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/client/pay/callback",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"client",
+								"pay",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取二维码  无记录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "packageName",
+									"value": "com.demo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/pay/qrcode_n",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"pay",
+								"qrcode_n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询订单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"lonely: demo\",\r\n    \"out_trade_no\": \"01a003ea-1056-4092-a7d1-4c56cecbc149\",\r\n    \"total_amount\": 0.01\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/pay/query_trade",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"pay",
+								"query_trade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "商品应用",
+			"item": [
+				{
+					"name": "创建应用(admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQHFxLmNvbSIsInQiOiJBUm55cnFJelVocTlTUzBMIiwiaWF0IjoxNjE2MjEwMDA4LCJleHAiOjI0ODAyMTAwMDh9.udtbEcDNStlU5INjilfcYWRX5fntMdvFJz0jtckZft0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "goodsName",
+									"value": "121212123",
+									"description": "应用名称",
+									"type": "text"
+								},
+								{
+									"key": "packageName",
+									"value": "com.deskbtm.ddm321",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "132",
+									"description": "价格",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "0",
+									"description": "折扣价格",
+									"type": "text"
+								},
+								{
+									"key": "alipayCallback",
+									"value": "https://cansda.com/sda",
+									"description": "支付宝回调设置",
+									"type": "text"
+								},
+								{
+									"key": "shareUrl",
+									"value": "https://cansda.com/sda",
+									"description": "分享重定向的链接 （跳转到自己的应用什么的）",
+									"type": "text"
+								},
+								{
+									"key": "alipayGateway",
+									"value": "https://openapi.alipay.com/gateway.do",
+									"description": "支付宝网关",
+									"type": "text"
+								},
+								{
+									"key": "alipayDesc",
+									"value": "123131",
+									"description": "支付时 支付显示的一段话",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/goods/create",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"goods",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询应用(admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InFxQHFxLmNvbSIsInQiOiI5akM0a19GeVNOUEJlQy1iIiwiaWF0IjoxNjE2NDAyMTcxLCJleHAiOjI0ODA0MDIxNzF9.iAZ-r9dt6FlGgpsTygEhlT1iRwSeEChvSaymAKxhxCI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/goods/query",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"goods",
+								"query"
+							]
+						},
+						"description": "管理台 和 客户端 \n用户获取应用商品"
+					},
+					"response": []
+				},
+				{
+					"name": "修改应用(admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsInQiOiJNMk4yQ0l1eHMzcnRoVnpmIiwiaWF0IjoxNjE2NTEzMzc0LCJleHAiOjI0ODA1MTMzNzR9.rv7ZlecWA9KjBKwI6lJB7D_pp1gmvwL500GjfY5xMoU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "4d2ac1a3-370f-4bb1-95a8-658bd457e761",
+									"type": "text"
+								},
+								{
+									"key": "goodsName",
+									"value": "多多喵2131231",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "alipayCallback",
+									"value": "https://ddm.deskbtm.com/v1/pay/callback",
+									"type": "text"
+								},
+								{
+									"key": "packageName",
+									"value": "com.deskbtm.ddm12121",
+									"type": "text"
+								},
+								{
+									"key": "alipayDesc",
+									"value": "向多多喵开发者打款,你的支持 就是我的动力",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/goods/modify",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"goods",
+								"modify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取应用信息(both)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "packageName",
+									"value": "com.deskbtm.ddm",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:1031/v1/goods/info",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1031",
+							"path": [
+								"v1",
+								"goods",
+								"info"
+							]
+						},
+						"description": "需要 packageName 获取应用的信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "客户端",
+			"item": [
+				{
+					"name": "用户",
+					"item": [
+						{
+							"name": "注册",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"username\": \"942341345@qq.com\",\r\n    \"password\": \"123456789\",\r\n    \"packageName\": \"com.demo\",\r\n    \"captcha\": \"6627\",\r\n    \"device\": {\r\n        \"os\": \"android\",\r\n        \"osVersion\": \"11\",\r\n        \"brand\": \"xiaomi\",\r\n        \"modelName\": \"xmiao note4\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/register",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "使用密码登录",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"942341345@qq.com\",\r\n    \"password\": \"1qaz2wsx\",\r\n    \"packageName\": \"com.deskbtm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/login_pwd",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"login_pwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "使用jwt登录",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjExMUBxcS5jb20iLCJ0IjoiaUxaU2xwWUQ0S2dzOWc5ZSIsImlhdCI6MTYxODAyMzA4OSwiZXhwIjoyNDgyMDIzMDg5fQ.SS9TzXboN57Zuwe_npaSIVfPOI0CY6lTdK8q2SIuIuE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/share_goods?u=43711e51-566a-468b-8adc-11aa7a690cc5&t=d91ccc9e-e9d3-4c28-8a31-4728388260cb&packageName=com.deskbtm.ddm",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"share_goods"
+									],
+									"query": [
+										{
+											"key": "u",
+											"value": "43711e51-566a-468b-8adc-11aa7a690cc5"
+										},
+										{
+											"key": "t",
+											"value": "d91ccc9e-e9d3-4c28-8a31-4728388260cb"
+										},
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取应用应用分享链接",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijk0MjM0MTM0NUBxcS5jb20iLCJ0IjoiZnNaY1RZZk9ycmJGT3ZYcyIsImlhdCI6MTYxOTY4NTU4NywiZXhwIjoyNDgzNjg1NTg3fQ.zJQy7cVnXlahd9DlBe7fi4r0uqejr0oAWAKYI9l8P1s",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"packageName\": \"com.deskbtm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/share_goods_url",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"share_goods_url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询是否关注bilibili",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsInQiOiIwaEQ4WktkRURqd0Jib1JjIiwiaWF0IjoxNjE3MTc1MTgzLCJleHAiOjI0ODExNzUxODN9.r5KvFY6GuYskDAWbAuwI490tWVOmF3_9TsRQhjMYAns",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										},
+										{
+											"key": "uid",
+											"value": "260206525",
+											"description": "用户的bilibili uid",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/followed_bilibili",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"followed_bilibili"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户是否购买",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijk0MjM0MTM0NUBxcS5jb20iLCJ0IjoiSWFkVExsN1gtVkpQd19zeiIsImlhdCI6MTYxNzgwNjI5NywiZXhwIjoyNDgxODA2Mjk3fQ.CvVw39dA7wZH2LO-5W5mwJL1ZyQ_IoyBvfIBMmtFK0Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/purchased",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"purchased"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码验证码",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "942341345@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/modify_pwd_captcha",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"modify_pwd_captcha"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户分享（doc）",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/share_goods?u=94384087-5d6c-4e7c-9a8f-7bfece9cae44&t=942341345@qq.com&packageName=com.demo",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"share_goods"
+									],
+									"query": [
+										{
+											"key": "u",
+											"value": "94384087-5d6c-4e7c-9a8f-7bfece9cae44"
+										},
+										{
+											"key": "t",
+											"value": "942341345@qq.com"
+										},
+										{
+											"key": "packageName",
+											"value": "com.demo"
+										}
+									]
+								},
+								"description": "访问满五次可以激活分享任务 访问次数可以在代码里调"
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ijk0MjM0MTM0NUBxcS5jb20iLCJ0IjoiWjBnSlBVY0ppZ0k2SFJQOSIsImlhdCI6MTYxOTI2ODIzNSwiZXhwIjoyNDgzMjY4MjM1fQ.DIbg2BycPR7Ccquzn4fg0hGlSfg5olB-OepgLW-DnPc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "newPassword",
+											"value": "1qaz2wsx",
+											"type": "text"
+										},
+										{
+											"key": "captcha",
+											"value": "8507",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/modify_pwd",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"modify_pwd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "注册验证码",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/client/user/register_captcha",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"client",
+										"user",
+										"register_captcha"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "初屏通知",
+					"item": [
+						{
+							"name": "记录",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "current",
+											"value": "1",
+											"description": "页数\n",
+											"type": "text"
+										},
+										{
+											"key": "pageSize",
+											"value": "20",
+											"description": "页面显示大小\n",
+											"type": "text"
+										},
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/splash_notification/history",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"splash_notification",
+										"history"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "软件更新",
+					"item": [
+						{
+							"name": "获取最新",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/latest",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"latest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "根据版本获取应用信息",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										},
+										{
+											"key": "semver",
+											"value": "1.0.4",
+											"description": "版本号",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/version",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"version"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "控制台",
+			"item": [
+				{
+					"name": "管理员",
+					"item": [
+						{
+							"name": "注册",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"qq@admin.com\",\r\n    \"password\": \"outlook9423\",\r\n    \"device\": {\r\n        \"os\": \"io312s\",\r\n        \"osVersion\": \"12314\",\r\n        \"brand\": \"apple\",\r\n        \"modelName\": \"iphone\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/dashboard/admin/register",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"dashboard",
+										"admin",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jwt 登录",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsInQiOiI3bmpEd2p3cjU2STdsWUp0IiwiaWF0IjoxNjE3MTU4MTQ1LCJleHAiOjI0ODExNTgxNDV9.TrI7l3epb7XgB-Hm6k5OkjmY6I4Uj8qucLjZuwYfv3",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/dashboard/admin/login_jwt",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"dashboard",
+										"admin",
+										"login_jwt"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "密码登录",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"dev@dev.com\",\r\n    \"password\": \"dev123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/dashboard/admin/login_pwd",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"dashboard",
+										"admin",
+										"login_pwd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "初屏通知",
+					"item": [
+						{
+							"name": "添加通知",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InFxQGFkbWluLmNvbSIsInQiOiJiT012ZmFfeUNkd0ZleEJrIiwiaWF0IjoxNjE2NzQ3NzMyLCJleHAiOjI0ODA3NDc3MzJ9.MhCDN2o47iMJ1zMecQq8RFConJietuqsZNbTbVsWZ60",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "packageName",
+											"value": "com.deskbtm.ddm",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "demo",
+											"type": "text"
+										},
+										{
+											"key": "forceDisplay",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "display",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "dsadada",
+											"type": "text"
+										},
+										{
+											"key": "descriptionHtml",
+											"value": "<p>dsadada</p>\\n",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/splash_notification/add",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"splash_notification",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "记录",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"current\": 1,\r\n    \"pageSize\": 20,\r\n    \"packageName\": \"com.deskbtm.ddm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/splash_notification/history",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"splash_notification",
+										"history"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/splash_notification/delete",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"splash_notification",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "软件更新",
+					"item": [
+						{
+							"name": "latest（client）",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"packageName\": \"com.deskbtm.ddm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/latest",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"latest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InFxQGFkbWluLmNvbSIsInQiOiJiT012ZmFfeUNkd0ZleEJrIiwiaWF0IjoxNjE2NzQ3NzMyLCJleHAiOjI0ODA3NDc3MzJ9.MhCDN2o47iMJ1zMecQq8RFConJietuqsZNbTbVsWZ60",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"packageName\": \"com.deskbtm.ddm\",\r\n    \"description\": \"fuck\",\r\n    \"title\": \"fucker\",\r\n    \"semver\": \"1.1.6\",\r\n    \"forceUpdate\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/add",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "history",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pageSize\":20,\r\n    \"current\": 1,\r\n    \"packageName\": \"com.duoduomiao.cn\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/history",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"history"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更具版本获取更新记录",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"packageName\": \"com.deskbtm.ddm\",\r\n    \"semver\": \"1.0.4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/tools/app_update/version",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"tools",
+										"app_update",
+										"version"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "用户",
+					"item": [
+						{
+							"name": "query",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsInQiOiJva00yd1F0YlBJbF80azAtIiwiaWF0IjoxNjE2NjM3OTQ4LCJleHAiOjI0ODA2Mzc5NDh9.vmLAcvP3yqz6_mPMuNXf1NPhmfpndgoNsv_vw8Ol8Mg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pageSize\":  20,\r\n    \"pageNum\":  0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://127.0.0.1:1031/v1/dashboard/consumer/query",
+									"protocol": "https",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "1031",
+									"path": [
+										"v1",
+										"dashboard",
+										"consumer",
+										"query"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
