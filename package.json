@@ -17,6 +17,7 @@
     "setup": "pm2 deploy ecosystem.config.js production setup",
     "migration:generate": "cross-env NODE_ENV=production typeorm migration:generate -n SchemaMigration",
     "migration:run": "cross-env NODE_ENV=production ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run",
+    "migration:create": "cross-env NODE_ENV=production typeorm migration:create -n SchemaMigration",
     "migration:revert": "cross-env NODE_ENV=production ts-node --transpile-only ./node_modules/typeorm/cli.js migration:revert",
     "test": "jest",
     "test:watch": "jest --watch",

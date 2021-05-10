@@ -21,9 +21,9 @@ module.exports = {
       repo: '',
       ssh_options: 'StrictHostKeyChecking=no',
       path: '',
-      'post-setup': 'ls -al',
+      'post-setup': 'npm install',
       'post-deploy':
-        'npm install && npm run migration:generate && npm run build && pm2 startOrReload ecosystem.config.js --env production',
+        'npm install && npm run build && pm2 npm run migration:generate && startOrReload ecosystem.config.js --env production',
     },
   },
 };
