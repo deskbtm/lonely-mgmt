@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import mysqldump from 'mysqldump';
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import { resolve } from 'path';
 import * as os from 'os';
 import { nanoid } from 'nanoid';
