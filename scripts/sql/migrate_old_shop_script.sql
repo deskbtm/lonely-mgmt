@@ -1,0 +1,2 @@
+INSERT INTO `app-mgmt-prod`.`user`  (id, username,password,forbidden,followedBilibili,create_time,update_time)
+SELECT user_id, username ,password ,forbidden , follow_bilibili ,update_time, create_time FROM `sewerganger-app-shop`.`user` u
