@@ -1,6 +1,6 @@
 ## Lonely -- 独立开发者的软件管理工具
 
-使用: [https://carlajs.deskbtm.com/more/lonely-mgmt/start](https://carlajs.deskbtm.com/more/lonely-mgmt/start)
+使用: [https://nawb.deskbtm.com/more/lonely-mgmt/start](https://carlajs.deskbtm.com/more/lonely-mgmt/start)
 
 前端管理台: [https://github.com/sewerganger/lonely-mgmt-dashboard](https://github.com/sewerganger/lonely-mgmt-dashboard)
 
@@ -16,4 +16,4 @@
 
 ## 贡献
 
-[https://carlajs.deskbtm.com/more/lonely-mgmt/contribution](https://carlajs.deskbtm.com/more/lonely-mgmt/contribution)
+[https://nawb.deskbtm.com/more/lonely-mgmt/contribution](https://nawb.deskbtm.com/more/lonely-mgmt/contribution)
